@@ -9,9 +9,13 @@ public class Prodotto {
     private double prezzo;
     private double iva;
 
-    public Prodotto() {
+    public Prodotto(String nome, String marca, double prezzo, double iva) {
         Random rnd = new Random();
         codice = rnd.nextInt(1000, 10000);
+        this.nome = nome;
+        this.marca = marca;
+        this.prezzo = prezzo;
+        this.iva = iva;
     }
 
     public int getCodice() {
@@ -50,8 +54,16 @@ public class Prodotto {
         this.iva = iva;
     }
 
-    public double getPrezzoIvato(){
+    public double getPrezzoIvato() {
         return prezzo * iva;
     }
 
+    @Override
+    public String toString() {
+        return "codice = " + codice
+                + ", nome = " + nome
+                + ", marca = " + marca
+                + ", prezzo = " + prezzo
+                + ", iva = " + iva;
+    }
 }

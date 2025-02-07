@@ -6,9 +6,11 @@ public class Smartphone extends Prodotto {
     private int imei;
     private int memoria;
 
-    public Smartphone() {
+    public Smartphone(String nome, String marca, double prezzo, double iva, int memoria) {
+        super(nome, marca, prezzo, iva);
         Random rnd = new Random();
         imei = rnd.nextInt(100000000, 1000000000);
+        this.memoria = memoria;
     }
 
     public int getImei() {
@@ -21,6 +23,15 @@ public class Smartphone extends Prodotto {
 
     public void setMemoria(int memoria) {
         this.memoria = memoria;
+    }
+
+    @Override
+    public String toString() {
+        return "Nuovo smartphone: " 
+                + super.toString()
+                + ", prezzo ivato = "+ getPrezzoIvato() 
+                + ", imei = " + imei
+                + ", memoria = " + memoria;
     }
 
 }
